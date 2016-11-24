@@ -81,4 +81,5 @@ topics_bushtaxi_1  | Done [] []
 * If Topics Bushtaxi goes down, it will miss messages from Votes Bushtaxi
 * If Votes Bushtaxi goes down, Votes API will block *and* subscriptions are lost
 * If Topics API goes down, HTTP call from Topics bushtaxi fails
+* If there are several Topics Bushtaxi instances, votes will count double
 

@@ -36,7 +36,7 @@ The idea is that the topics service maintains a sum of the total up/downvotes fo
 
 #### Communication
 
-4. Now, cast a vote: `curl -XPOST --data '{ "topic_id" : 1, "vote" : 1 }"' http://127.0.0.1/votes`
+4. Now, cast a vote: `curl -XPOST --data '{ "topic_id" : 1, "vote" : 1 }' http://127.0.0.1/votes`
 5. "Magically" the vote for topic id 1 was updated: `curl http://127.0.0.1/topics/1`
 
 #### How did this work?

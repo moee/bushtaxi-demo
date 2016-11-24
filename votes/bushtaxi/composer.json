@@ -1,6 +1,6 @@
 {
   "require": {
-    "moee/bushtaxi": "dev-working",
+    "moee/bushtaxi": "~0.0.0-alpha",
     "monolog/monolog": "^1.21"
   },
 

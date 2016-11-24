@@ -2,18 +2,9 @@
 
 require 'vendor/autoload.php';
 
-class Runtime implements Bushtaxi\Runtime {
+class Runtime extends Bushtaxi\AbstractServerRuntime {
     function __construct($log) {
         $this->log = $log;
-    }
-    function init($links)
-    {
-
-    }
-
-    function isRunning()
-    {
-        return true;
     }
 
     function handle($links)
@@ -32,11 +23,6 @@ class Runtime implements Bushtaxi\Runtime {
 
         $this->log->debug("Done");
     }
-
-    function shutdown()
-    {
-
-    }
 }
 
 $config = json_decode(file_get_contents(__DIR__ . '/votes.json'), true);
@@ -44,8 +30,8 @@ $log = new Monolog\Logger($config['service']['name']);
 
 $bushtaxi = new Bushtaxi\Server(
     $config,
-    $log,
-    new Runtime($log)
+    new Runtime($log),
+    $log
 );
 
 $bushtaxi->run();

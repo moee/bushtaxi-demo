@@ -1,7 +1,6 @@
 {
   "require": {
-        "moee/bushtaxi": "dev-working",
-        "php": ">=7.0",
+        "moee/bushtaxi": "~0.0.0-alpha",
         "silex/silex": "~2.0",
         "symfony/monolog-bridge": "~2.8|3.0.*",
         "jdesrosiers/silex-cors-provider": "~1.0"

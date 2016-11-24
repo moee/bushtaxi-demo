@@ -4,112 +4,35 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7639a70d8dd546c36f8e9577c88f7649",
-    "content-hash": "a21c47f98c48edaeef14196b9fe7ce19",
+    "hash": "cb7c40aec7346efe5e2a564f7877c139",
+    "content-hash": "55a7a4d132594e6ffef6d2b77f73c95a",
     "packages": [
         {
-            "name": "bramus/ansi-php",
-            "version": "3.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/bramus/ansi-php.git",
-                "reference": "c0dcf9a949e1c6111bbbb52a8ead34776064b209"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/bramus/ansi-php/zipball/c0dcf9a949e1c6111bbbb52a8ead34776064b209",
-                "reference": "c0dcf9a949e1c6111bbbb52a8ead34776064b209",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.4.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~4.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Bramus\\Ansi\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Bramus Van Damme",
-                    "email": "bramus@bram.us",
-                    "homepage": "https://www.bram.us/"
-                }
-            ],
-            "description": "ANSI Control Functions and ANSI Control Sequences (Colors, Erasing, etc.) for PHP CLI Apps",
-            "time": "2015-01-08 15:02:37"
-        },
-        {
-            "name": "bramus/monolog-colored-line-formatter",
-            "version": "2.0.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/bramus/monolog-colored-line-formatter.git",
-                "reference": "6bff15eee00afe2690642535b0f1541f10852c2b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/bramus/monolog-colored-line-formatter/zipball/6bff15eee00afe2690642535b0f1541f10852c2b",
-                "reference": "6bff15eee00afe2690642535b0f1541f10852c2b",
-                "shasum": ""
-            },
-            "require": {
-                "bramus/ansi-php": "~3.0",
-                "php": ">=5.4.0"
-            },
-            "require-dev": {
-                "monolog/monolog": "~1.0",
-                "phpunit/phpunit": "~4.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Bramus\\Monolog\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Bramus Van Damme",
-                    "email": "bramus@bram.us",
-                    "homepage": "https://www.bram.us/"
-                }
-            ],
-            "description": "Colored Line Formatter for Monolog",
-            "time": "2015-01-07 22:12:35"
-        },
-        {
             "name": "moee/bushtaxi",
-            "version": "dev-working",
+            "version": "0.0.1-alpha",
             "source": {
                 "type": "git",
                 "url": "https://github.com/moee/bushtaxi.git",
-                "reference": "1827f94873edb9437a15bee3ac94eb6a63ef1401"
+                "reference": "103b777fb9f5802bfafb00c5a0bea128ab1af9ba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/moee/bushtaxi/zipball/1827f94873edb9437a15bee3ac94eb6a63ef1401",
-                "reference": "1827f94873edb9437a15bee3ac94eb6a63ef1401",
+                "url": "https://api.github.com/repos/moee/bushtaxi/zipball/103b777fb9f5802bfafb00c5a0bea128ab1af9ba",
+                "reference": "103b777fb9f5802bfafb00c5a0bea128ab1af9ba",
                 "shasum": ""
             },
             "require": {
-                "bramus/monolog-colored-line-formatter": "~2.0",
-                "monolog/monolog": "^1.21",
-                "pimple/pimple": "^3.0"
+                "ext-zmq": "*",
+                "php": ">=7.0"
             },
             "require-dev": {
-                "brianium/paratest": "dev-master"
+                "bramus/monolog-colored-line-formatter": "~2.0",
+                "monolog/monolog": "^1.21",
+                "phpunit/phpunit": "5.6.*",
+                "pimple/pimple": "^3.0"
+            },
+            "suggest": {
+                "monolog/monolog": "^1.21"
             },
             "bin": [
                 "bin/bushtaxi"
@@ -121,6 +44,7 @@
                     "BushtaxiTest\\": "tests/Bushtaxi"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -130,12 +54,8 @@
                     "email": "moee@noreply.github.com"
                 }
             ],
-            "description": "ZeroMQ connection manager for PHP",
-            "support": {
-                "source": "https://github.com/moee/bushtaxi/tree/working",
-                "issues": "https://github.com/moee/bushtaxi/issues"
-            },
-            "time": "2016-11-24 08:33:21"
+            "description": "ZeroMQ connection manager for PHP (alpha)",
+            "time": "2016-11-24 12:12:43"
         },
         {
             "name": "monolog/monolog",
@@ -216,52 +136,6 @@
             "time": "2016-07-29 03:23:52"
         },
         {
-            "name": "pimple/pimple",
-            "version": "v3.0.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/silexphp/Pimple.git",
-                "reference": "a30f7d6e57565a2e1a316e1baf2a483f788b258a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/silexphp/Pimple/zipball/a30f7d6e57565a2e1a316e1baf2a483f788b258a",
-                "reference": "a30f7d6e57565a2e1a316e1baf2a483f788b258a",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Pimple": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                }
-            ],
-            "description": "Pimple, a simple Dependency Injection Container",
-            "homepage": "http://pimple.sensiolabs.org",
-            "keywords": [
-                "container",
-                "dependency injection"
-            ],
-            "time": "2015-09-11 15:10:35"
-        },
-        {
             "name": "psr/log",
             "version": "1.0.2",
             "source": {
@@ -313,7 +187,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "moee/bushtaxi": 20
+        "moee/bushtaxi": 15
     },
     "prefer-stable": false,
     "prefer-lowest": false,

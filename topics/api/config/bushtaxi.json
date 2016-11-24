@@ -1,0 +1,11 @@
+{
+  "service" : {
+    "name" : "api"
+  },
+  "links" : {
+    "bushtaxi" : {
+      "type": "req",
+      "connect" : "tcp://10.0.3.101:6000"
+    }
+  }
+}

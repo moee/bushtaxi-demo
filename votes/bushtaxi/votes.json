@@ -1,0 +1,15 @@
+{
+  "service" : {
+    "name" : "topics"
+  },
+  "links" : {
+    "api" : {
+      "type": "pull",
+      "bind" : "tcp://10.0.3.101:6000"
+    },
+    "subscribers" : {
+      "type" : "pub",
+      "bind" : "tcp://10.0.3.101:5000"
+    }
+  }
+}

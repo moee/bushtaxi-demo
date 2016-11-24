@@ -1,0 +1,61 @@
+version: '2'
+services:
+  topics_api:
+    image: composer/composer
+    volumes:
+      - ./topics/api:/app
+    command:
+      - run-script
+      - --timeout=0
+      - run
+    networks:
+      back:
+        ipv4_address: 10.0.1.100
+  topics_bushtaxi:
+    image: dockmoe/php:7-cli
+    volumes:
+      - ./topics/bushtaxi:/app
+    networks:
+      back:
+        ipv4_address: 10.0.2.100
+    working_dir: /app
+    command:
+      - php
+      - /app/run.php
+  votes_api:
+    image: dockmoe/php:7-cli
+    volumes:
+      - ./votes/api:/app
+    working_dir: /app
+    command:
+      - composer
+      - run-script
+      - --timeout=0
+      - run
+    networks:
+      back:
+        ipv4_address: 10.0.3.100
+  votes_bushtaxi:
+    image: dockmoe/php:7-cli
+    volumes:
+      - ./votes/bushtaxi:/bushtaxi
+    networks:
+      back:
+        ipv4_address: 10.0.3.101
+    command:
+      - php
+      - /bushtaxi/run.php
+  proxy:
+    image: nginx
+    ports:
+      - 80:80
+    volumes:
+      - ./proxy:/etc/nginx/conf.d:ro
+    networks:
+      - back
+networks:
+  back:
+    ipam:
+      config:
+       - subnet: 10.0.0.0/8
+         gateway: 10.0.0.1

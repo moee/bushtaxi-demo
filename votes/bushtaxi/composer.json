@@ -1,0 +1,12 @@
+{
+  "require": {
+    "moee/bushtaxi": "dev-working",
+    "monolog/monolog": "^1.21"
+  },
+
+  "autoload": {
+    "psr-4": {
+      "BushtaxiDemo\\": "src"
+    }
+  }
+}

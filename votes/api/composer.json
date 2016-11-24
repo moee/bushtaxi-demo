@@ -1,0 +1,18 @@
+{
+  "require": {
+        "moee/bushtaxi": "dev-working",
+        "php": ">=7.0",
+        "silex/silex": "~2.0",
+        "symfony/monolog-bridge": "~2.8|3.0.*",
+        "jdesrosiers/silex-cors-provider": "~1.0"
+    },
+    "autoload": {
+        "psr-0": { "": "src/" }
+    },
+    "scripts": {
+        "run": [
+            "echo 'Started web server on http://0.0.0.0:80'",
+            "php -S 0.0.0.0:80 -t web"
+        ]
+    }
+}

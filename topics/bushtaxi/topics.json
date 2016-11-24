@@ -1,0 +1,14 @@
+{
+  "service" : {
+    "name" : "topics"
+  },
+  "links" : {
+    "votes" : {
+      "type" : "sub",
+      "connect" : "tcp://10.0.3.101:5000",
+      "subscriptions": {
+        "vote.casted": "abc"
+      }
+    }
+  }
+}

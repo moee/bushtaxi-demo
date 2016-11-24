@@ -9,11 +9,13 @@ $app->get('/', function () use ($app) {
 });
 
 $app->post('/', function(Request $request) use ($app) {
-    $meetup = new Meetup(
-        json_decode($request->getContent(), true)
-    );
-    $meetup->id =substr(md5(uniqid()), 0, 7);
-    $app['dao']->save($meetup);
+    $topicsArray = json_decode($request->getContent(), true);
+
+    foreach ($topicsArray as $topicArray) {
+        $topic = new Topic($topicArray);
+        $app['dao']->save($topic);
+    }
+
     return $app->json(true);
 });
 
@@ -33,6 +35,5 @@ $app->patch('/{id}', function(Request $request) use ($app) {
     $data = json_decode($request->getContent(), true);
     $topic = $app['dao']->get($request->get('id'));
     $topic->total += $data['votes'];
-    $app['dao']->save($topic);
-    return $topic->total;
+    return $app->json($app['dao']->save($topic));
 });

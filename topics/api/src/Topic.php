@@ -1,6 +1,6 @@
 <?php
 
-class Meetup implements JsonSerializable {
+class Topic implements JsonSerializable {
     public $id, $title, $location, $total = 0;
 
     public function __construct($data)

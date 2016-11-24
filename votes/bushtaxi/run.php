@@ -18,14 +18,19 @@ class Runtime implements Bushtaxi\Runtime {
 
     function handle($links)
     {
-        $this->log->debug("Listening for event");
+        $this->log->debug("Listening for event from api");
         $event = $links['api']->recv();
-        $this->log->debug("Listening for payload");
+        $this->log->debug("Received message $event");
+        $this->log->debug("Listening for payload from api");
         $payload = $links['api']->recv();
+        $this->log->debug("Received message $payload");
 
-        $this->log->debug("Publishing event");
+        $this->log->debug("Publishing event $event");
         $links['subscribers']->send($event, \ZMQ::MODE_SNDMORE);
+        $this->log->debug("Sending payload");
         $links['subscribers']->send($payload);
+
+        $this->log->debug("Done");
     }
 
     function shutdown()

@@ -4,23 +4,27 @@ class Dao
 {
     private $data = [];
 
-    const FILE = '/tmp/meetups.json';
+    const FILE = '/tmp/topics.json';
 
-    function save(Meetup $meetup)
+    function save(Topic $topic)
     {
+        if (!isset($topic->id)) {
+            $topic->id =substr(md5(uniqid()), 0, 7);
+        }
+
         $this->_writeToDisk(
             array_merge(
                 $this->getAll(),
-                [
-                    $meetup->id => $meetup->jsonSerialize()
-                ]
+                ["i" . strval($topic->id) => $topic->jsonSerialize()]
             )
         );
+
+        return $topic;
     }
 
     function get($id)
     {
-        return new Meetup($this->getAll()[$id]);
+        return new Topic($this->getAll()["i" . $id]);
     }
 
     function delete($id)

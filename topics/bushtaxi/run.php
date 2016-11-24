@@ -18,15 +18,16 @@ class Runtime implements Bushtaxi\Runtime {
 
     function handle($links)
     {
-        $this->log->debug("Listening for event");
+        $this->log->debug("Listening for event from votes");
         $event = $links['votes']->recv();
-        $this->log->debug("Listening for payload");
+        $this->log->debug("Received event $event");
+        $this->log->debug("Listening for payload from votes");
         $payload = $links['votes']->recv();
-
-        $this->log->debug("HOORAY $payload");
+        $this->log->debug("Received $payload");
 
         $vote = json_decode($payload, true);
 
+        $this->log->debug("Patching topics api");
         $client = new GuzzleHttp\Client(['base_uri' => 'http://topics_api/']);
         $client->patch(
             "/{$vote['topic_id']}",
@@ -36,8 +37,7 @@ class Runtime implements Bushtaxi\Runtime {
                 ]
             ]
         );
-
-
+        $this->log->debug("Done");
     }
 
     function shutdown()

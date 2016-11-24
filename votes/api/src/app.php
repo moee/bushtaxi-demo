@@ -21,6 +21,9 @@ $app['bushtaxi.client'] = function($app) {
     );
 };
 $app['dao'] = function($app) {
-    return new BushtaxiDao($app['bushtaxi.client']);
+    return new BushtaxiDao(
+        $app['bushtaxi.client'],
+        $app['bushtaxi.log']
+    );
 };
 return $app;

@@ -6,20 +6,25 @@ class BushtaxiDao
 
     const FILE = '/tmp/votes.json';
 
-    function __construct($bushtaxi)
+    function __construct($bushtaxi, $log)
     {
         $this->bushtaxi = $bushtaxi;
+        $this->log = $log;
     }
 
     function save(Vote $vote)
     {
-        $this->bushtaxi->getLink('api')->send(
+        $this->log->debug("Send message vote.casted to bushtaxi");
+        $this->bushtaxi->getLink('bushtaxi')->send(
             'vote.casted',
             \ZMQ::MODE_SNDMORE
         );
-        $this->bushtaxi->getLink('api')->send(
+        $this->log->debug("Send vote object to bushtaxi");
+        $this->bushtaxi->getLink('bushtaxi')->send(
             json_encode($vote->jsonSerialize())
         );
+
+        $this->log->debug("Done");
 
         $this->_writeToDisk(
             array_merge(

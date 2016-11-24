@@ -1,0 +1,17 @@
+[
+    {
+        "id" : 1,
+        "topic": "Monoliths are the best thing evar",
+        "speaker": "John"
+    },
+    {
+        "id" : 2,
+        "topic": "How I got rich and famous using Microservices",
+        "speaker": "Fred"
+    },
+    {
+        "id" : 3,
+        "topic": "Are Microservices just a big hype?",
+        "speaker": "Claire"
+    }
+]

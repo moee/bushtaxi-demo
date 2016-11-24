@@ -1,5 +1,5 @@
 # bushtaxi-demo
-This repository demonstrates how [bushtaxi](https://github.com/moee/bushtaxi) can be used to create microservices in PHP that communicate with each other using ZeroMQ.
+This repository demonstrates how [bushtaxi](https://github.com/moee/bushtaxi) can be used to create microservices in PHP that communicate with each other using ZeroMQ. Note that this is a demo and is not intended for production use.
 
 ## Installation
 
@@ -76,3 +76,9 @@ topics_bushtaxi_1  | Received {"id":"edd71cc","topic_id":"1","vote":"1"} [] []
 topics_bushtaxi_1  | Patching topics api [] []
 topics_bushtaxi_1  | Done [] []
 ```
+## What are (some) of the problems with this design?
+
+* If Topics Bushtaxi goes down, it will miss messages from Votes Bushtaxi
+* If Votes Bushtaxi goes down, Votes API will block *and* subscriptions are lost
+* If Topics API goes down, HTTP call from Topics bushtaxi fails
+
